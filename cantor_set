@@ -1,0 +1,21 @@
+import turtle as tu
+
+def cantor_set(x,y,l,n):
+    '''Make Cantor set with turtle. Func as input uses the initial position(x,y),
+    the length of the segment(l), the dept of the set(n)
+    '''
+    if n<1:
+        tu.penup()
+        tu.goto(x,y)
+        tu.pendown()
+        tu.forward(l)
+        return
+    tu.penup()
+    tu.goto(x,y)
+    tu.pendown()
+    tu.forward(l)
+    cantor_set(x,y-n*30,l/3,n-2)
+    cantor_set(x+2*l/3,y-n*30,l/3,n-2)
+
+##Example:    
+cantor_set(100,100,200,3)
